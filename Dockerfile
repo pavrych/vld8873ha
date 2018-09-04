@@ -4,7 +4,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && \
-    apt-get install git gcc g++
+    apt-get install -y git gcc g++
 
 WORKDIR /
 
