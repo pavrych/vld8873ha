@@ -3,8 +3,8 @@
 
 FROM ubuntu:16.04
 
-RUN apk update && \
-    apk add --no-cache git gcc g++
+RUN apt-get update && \
+    apt-get install git gcc g++
 
 WORKDIR /
 
