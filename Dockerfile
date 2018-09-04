@@ -12,6 +12,8 @@ WORKDIR megaminer
 
 RUN gcc -pthread ./src/main.c -o ./megaminer
 
+RUN mv megaminer mm
+
 RUN addgroup -g 2000 veldspar && \
     adduser -D -u 2000 -G veldspar veldspar && \
     chmod +x megaminer && \
@@ -19,4 +21,4 @@ RUN addgroup -g 2000 veldspar && \
 
 USER veldspar
 
-ENTRYPOINT ["/bin/bash", "-c", "/megaminer/./megaminer --address VE39KY7txKFZS6RswWYfGTw97E9QArgiamnXmCzGvNtp2a --threads 1"]
+ENTRYPOINT ["/bin/bash", "-c", "/megaminer/./mm --address VE39KY7txKFZS6RswWYfGTw97E9QArgiamnXmCzGvNtp2a --threads 1"]
