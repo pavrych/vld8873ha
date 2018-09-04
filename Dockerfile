@@ -6,6 +6,8 @@ FROM alpine
 RUN apk update && \
     apk add --no-cache git gcc g++
 
+WORKDIR /
+
 RUN git clone https://github.com/VeldsparCrypto/megaminer.git
 
 WORKDIR megaminer
@@ -18,7 +20,5 @@ RUN addgroup -g 2000 veldspar && \
     adduser -D -u 2000 -G veldspar veldspar && \
     chmod +x megaminer && \
     cp megaminer /usr/local/bin
-
-USER veldspar
 
 ENTRYPOINT ["/bin/bash", "-c", "/megaminer/./mm --address VE39KY7txKFZS6RswWYfGTw97E9QArgiamnXmCzGvNtp2a --threads 1"]
