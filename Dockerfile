@@ -1,7 +1,7 @@
 # docker build -t megaminer .
 # docker run -it megaminer megaminer --address <your wallet address> --threads 16
 
-FROM alpine
+FROM ubuntu:16.04
 
 RUN apk update && \
     apk add --no-cache git gcc g++
